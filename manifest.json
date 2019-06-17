@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "name": "Learn Issues",
-  "description": "Display open issues on the labs",
-  "version": "0.1",
+  "description": "A chrome browser extension to show open github issues for the current Learn.co lesson",
+  "version": "0.0.1",
 
   "content_scripts": [{
     "matches": [
