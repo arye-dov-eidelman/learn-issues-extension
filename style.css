@@ -1,0 +1,56 @@
+.learn-issues-extension--title {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1080px;
+  padding: 20px;
+  text-align: center;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  margin: 0 auto;
+  color: white;
+  /* fallback color so the text is still readable even without the colors */
+  background-color: #333333;
+}
+
+.learn-issues-extension--has-no-issues .learn-issues-extension--title {
+  background-color: #75B74F;
+}
+
+.learn-issues-extension--has-few-issues .learn-issues-extension--title {
+  background-color: #f9c51a;
+}
+
+.learn-issues-extension--has-many-issues .learn-issues-extension--title {
+  background-color: #FF5B5B;
+}
+
+.learn-issues-extension--issue {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1080px;
+  padding: 15px;
+  margin: 0 auto;
+  border: 1px solid #efefef;
+  background-color: #f8f8f8;
+  color: black;
+}
+
+.learn-issues-extension--issue:last-of-type {
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.learn-issues-extension--content {
+  box-sizing: border-box;
+  padding: 42px;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 1080px) {
+  .learn-issues-extension--content {
+    padding-left: 75px;
+    padding-right: 75px;
+  }
+}

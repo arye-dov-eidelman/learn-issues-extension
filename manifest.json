@@ -5,10 +5,9 @@
   "version": "0.0.1",
 
   "content_scripts": [{
-    "matches": [
-      "https://learn.co/*"
-    ],
-    "js": ["content.js"]
+    "matches": ["https://learn.co/tracks/*/*"],
+    "js": ["content.js"],
+    "css": ["style.css"]
   }],
 
   "background": {
