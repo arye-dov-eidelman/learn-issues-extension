@@ -1,6 +1,3 @@
-console.log("content script loaded")
-
-
 function renderIssues(issues) {
   if (issues.length === 0) { return }
 
@@ -27,29 +24,34 @@ function createIssueElement(issue) {
   element.style.setProperty('display', 'flex');
   element.style.setProperty('align-items', 'center');
   element.style.setProperty('width', '100%');
+  element.style.setProperty('max-width', '1080px');
   element.style.setProperty('height', '25px');
   element.style.setProperty('padding', '10px');
-  element.style.setProperty('background-color', 'red');
-  element.style.setProperty('color', 'black');
+  element.style.setProperty('margin', '0 auto');
+  element.style.setProperty('background-color', "#FF5B5B");
+  element.style.setProperty('color', 'white');
   return element
 }
 
 function createIssueTitleElement(issues) {
   element = document.createElement("h3")
   element.className = 'issue-title'
-  element.innerHTML = `${issues.length} issues on this repo right now`
+  element.innerHTML = `${issues.length} open issue${issues.length > 1 ? "s" : ""}`
 
   element.style.setProperty('display', 'flex');
   element.style.setProperty('align-items', 'center');
   element.style.setProperty('width', '100%');
+  element.style.setProperty('max-width', '1080px');
   element.style.setProperty('height', '25px');
   element.style.setProperty('padding', '10px');
-  element.style.setProperty('background-color', 'red');
-  element.style.setProperty('color', 'black');
+  element.style.setProperty('margin', '0 auto');
+  element.style.setProperty('background-color', "#FF5B5B");
+  element.style.setProperty('color', 'white');
   return element
 }
 
 function getIssues() {
+  console.log("Getting issues...")
   const baseUrl = "https://api.github.com/repos/learn-co-curriculum/"
   const repo = document.querySelector('[title="Raise an Issue"]').firstChild
     .href.split("/").reverse()[2]
@@ -57,16 +59,17 @@ function getIssues() {
   console.log(issueUrl)
 
   fetch(issueUrl)
-    .then(response => {
-      return response.json();
-    })
-    .then(issues => {
-      return issues.filter(issue => issue.state === "open");
-    })
-    .then(issues => {
-      console.log(issues)
-      return renderIssues(issues);
-    })
+    .then(response => response.json())
+    .then(issues => issues.filter(issue => !issue.pull_request))
+    .then(issues => renderIssues(issues))
 }
 
 getIssues()
+
+chrome.runtime.onMessage.addListener(
+  function (request) {
+    if (request.message === "page_changed") {
+      getIssues()
+    }
+  }
+);
