@@ -38,7 +38,7 @@ function createIssueTitleElement(issues) {
   if (hasIssues(issues)) {
     element.innerHTML = `${issues.length} open issue${issues.length > 1 ? "s" : ""}`;
   } else {
-    element.innerHTML = `All good`;
+    element.innerHTML = `No open issues`;
   }
 
   return element
