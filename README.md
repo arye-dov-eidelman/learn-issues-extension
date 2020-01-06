@@ -10,6 +10,9 @@ The banner is color coded based on how many issues are open. None is green, unti
 
 ## Instalation
 
+[Install from the chrome web store](https://chrome.google.com/webstore/detail/learn-issues/jlngcabipfijndiahbnodbgepolahdin)
+
+Install from master:
 - Download this repository `git clone git@github.com:arye-dov-eidelman/learn-issues-extension.git`
 - Navigate to `chrome://extensions/`.
 - Enable __Developer mode__ if it's not already enabled.
